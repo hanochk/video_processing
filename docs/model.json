@@ -1,0 +1,22 @@
+{
+    "pipelines": {
+
+    }
+}
+
+{
+    "movies": {},
+    "tasks": {},
+    "inputs": {
+      "videoprocessing": {
+        "is_async": "false",
+        "dataset": { "path": "/inputs/data", "id": "new_dataset_01" },
+        "context": { "delimeter" : "@" },
+        "output": "db",
+        "input": "dataset",
+        "overwrite": "true",
+        "save_movies": "true"
+      }
+    },
+    "id": "93504642-a2cb-4fd7-8135-0b9fb3b2c996"
+  }

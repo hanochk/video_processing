@@ -1,0 +1,49 @@
+### PREDICT IMAGE
+POST http://localhost:8000/predict/image
+content-type: application/json
+
+{
+    "image_id": "2402585",
+    "url": "https://cs.stanford.edu/people/rak248/VG_100K/2367862.jpg",
+    "local": false,
+    "scene_element": 0,
+    "extra_params": {
+        "min_prob": 0.5
+    }
+}
+
+### PREDICT IMAGES
+POST http://localhost:8000/process/movies
+content-type: application/json
+
+{
+    "movies": [
+        { "movie_id": "", "url": "http://74.82.29.209:9000/msrvtt/video8059.mp4", "type": "file" },
+        { "movie_id": "2402585", "url": "http://74.82.29.209:9000/msrvtt/video8135.mp4" , "type": "file" }
+    ],
+    "save_movies": true,
+    "output" : "db",
+    "is_async": true,
+    "overwrite": true
+}
+
+### jobs
+GET  http://localhost:48005/jobs
+
+### specific job
+GET  http://localhost:8000/jobs/45f4739b-146a-4ae3-9d06-16dee5df6ca7
+
+### from outside
+POST http://localhost:48005/process/movies
+content-type: application/json
+
+{
+    "movies": [
+        { "movie_id": "", "url": "http://74.82.29.209:9000/msrvtt/video8059.mp4", "type": "file" },
+        { "movie_id": "2402585", "url": "http://74.82.29.209:9000/msrvtt/video8135.mp4" , "type": "file" }
+    ],
+    "save_movies": true,
+    "output" : "db",
+    "is_async": true,
+    "overwrite": true
+}

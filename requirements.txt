@@ -1,0 +1,10 @@
+fastapi
+validators
+pytube
+paramiko
+scp
+scenedetect==0.6.0.3
+opencv-python
+scikit-learn
+scipy
+git+https://github.com/openai/CLIP.git

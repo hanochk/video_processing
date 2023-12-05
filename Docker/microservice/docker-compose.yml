@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  videoprocessing:
+    image: aharonamir/nebula3_videoprocessing:a5dcceb
+    ports:
+      - "48005:8000"
+    environment:
+      ARANGO_DB: "prodemo"
+      ARANGO_HOST: "172.83.9.249"
+      EXPERT_RUN_MODE: "task"
+      PIPELINE_ID: "20e23280-d291-421c-a480-ed6e567afe83"
+    command: python videoprocessing/expert/videoprocessing_expert.py
+    # volumes:
+    #   - /datasets:/datasets:rw
+    #   - /lsmdc_dataset:/lsmdc_dataset:rw
+    runtime: nvidia

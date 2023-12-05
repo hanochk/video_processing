@@ -1,0 +1,11 @@
+image: aharonamir/nebula3_expert_tracker:a4f27b2
+port: 8000
+env:
+  - name: ARANGO_DB
+    value: prodemo
+  - name: ARANGO_HOST
+    value: 172.83.9.249
+
+resources:
+  replicas: 1
+  instanceType: RTX4000

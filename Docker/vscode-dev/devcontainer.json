@@ -1,0 +1,46 @@
+{
+	"name": "Nebula Dev",
+	"context": ".",
+	"dockerFile": "./Dockerfile",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/notebooks,type=bind",
+	"workspaceFolder": "/notebooks",
+	// "image": "aharonamir/dev-python-nebula2:conda-0.3",
+	"settings": {
+		"python.defaultInterpreterPath": "/opt/conda/bin/python",
+		"python.linting.enabled": true,
+		"python.linting.pylintEnabled": true,
+		"python.formatting.autopep8Path": "/opt/conda/bin/autopep8",
+		"python.formatting.yapfPath": "/opt/conda/bin/yapf",
+		"python.linting.flake8Path": "/opt/conda/bin/flake8",
+		"python.linting.pycodestylePath": "/opt/conda/bin/pycodestyle",
+		"python.linting.pydocstylePath": "/opt/conda/bin/pydocstyle",
+		"python.linting.pylintPath": "/opt/conda/bin/pylint"
+	},
+	// vs-code extensions to enable inside the dev container
+	"extensions": [
+		"ms-python.python",
+		"ms-python.vscode-pylance",
+		"ms-toolsai.jupyter-renderers",
+		"ms-toolsai.jupyter",
+		"ms-toolsai.jupyter-keymap",
+		"donjayamanne.githistory",
+		"njpwerner.autodocstring",
+		"rangav.vscode-thunder-client"
+	],
+	"appPort": "48000:8000",
+	// mount other folders
+	"mounts": [
+		"source=${localEnv:HOME}/vscode-containers/extensions,target=/root/.vscode-server/extensions,type=bind,consistency=cached",
+    	// And/or for VS Code Insiders
+    	"source=${localEnv:HOME}/vscode-containers/insiders,target=/root/.vscode-server-insiders/extensions,type=bind,consistency=cached",
+		"source=/datasets,target=/datasets,type=bind,consistency=cached",
+		"source=/lsmdc_dataset,target=/lsmdc_dataset,type=bind,consistency=cached"
+	],
+	"containerEnv": {
+	},
+	// "containerUser": "${localEnv:USER}",
+	// enable when running over gpu
+	"runArgs": [
+		"--gpus=all"
+	]
+}
